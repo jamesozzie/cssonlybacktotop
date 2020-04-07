@@ -1,6 +1,6 @@
 <?php
 //show this settings page
-function jz_custom_settings_start()
+function jozz_custom_settings_start()
 {
     ?>
 
@@ -12,17 +12,16 @@ function jz_custom_settings_start()
         });
 </script>
 
-<div class="wrap jz_adminwrap">
+<div class="wrap jozz_adminwrap">
     <h1>CSS Back to top</h1>
     This plugin places a simple back to top buttton on the footer of your site. It's a CSS only solution, no bloatware here! <br>
     <i>If you're using the <a href="https://wordpress.org/plugins/amp/">official AMP plugin</a> you can use the options below to display the button on your AMP URLs, your non AMP URLs or both. </i>
 <form method="post" action="options.php">
     <?php
-    settings_fields('jz-settings');
-    settings_fields('jz-settings');
+    settings_fields('jozz-settings');
+    settings_fields('jozz-settings');
     ?>
-    <?php do_settings_sections('srz-color'); ?>
-    <table class="form-table">
+     <table class="form-table">
           <tr> <th><label for="color">Color</label></th>
         <td>
         <div class="pagebox">

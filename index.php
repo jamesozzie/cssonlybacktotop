@@ -8,44 +8,44 @@ Version: 1.0.0
 Author URI: https://aztecdesign.ie
  */
 
-define('JZ_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('JOZZ_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 // include options file
 include plugin_dir_path(__FILE__) . '/options.php';
 
 // create custom plugin settings menu
-add_action('admin_menu', 'sr_custom_settings');
-function sr_custom_settings()
+add_action('admin_menu', 'jozz_custom_settings');
+function jozz_custom_settings()
 {
     $page_title = 'CSS Back to Top';
     $menu_title = 'CSS Back to Top';
     $capability = 'manage_options';
-    $slug = 'jz-settings-cssbacktotop';
-    $start = 'jz_custom_settings_start';
+    $slug = 'jozz-settings-cssbacktotop';
+    $start = 'jozz_custom_settings_start';
     add_options_page($page_title, $menu_title, $capability, $slug, $start);
 }
 
 // Create option settings
-add_action('admin_init', 'jz_field');
-function jz_field()
+add_action('admin_init', 'jozz_field');
+function jozz_field()
 {
-    register_setting('jz-settings', 'color');
-    register_setting('jz-settings', 'viewoption');
+    register_setting('jozz-settings', 'color');
+    register_setting('jozz-settings', 'viewoption');
 }
 
 // add WP colour picker
 if (is_admin()) {
-    add_action('admin_enqueue_scripts', 'jz_colors_script');
+    add_action('admin_enqueue_scripts', 'jozz_colors_script');
 }
-function jz_colors_script($hook_suffix)
+function jozz_colors_script($hook_suffix)
 {
     wp_enqueue_style('wp-color-picker');
     wp_enqueue_script('wp-color-picker');
 }
 
 //set the CSS defaults
-add_action('wp_head', 'jz_cssdefaults');
-function jz_cssdefaults()
+add_action('wp_head', 'jozz_cssdefaults');
+function jozz_cssdefaults()
 {
     $color = esc_attr(get_option('color', '#314a5e')); ?>
 <style>
@@ -57,8 +57,8 @@ function jz_cssdefaults()
 }
 
 //set the rendering options
-add_action('wp_head', 'jz_options');
-function jz_options()
+add_action('wp_head', 'jozz_options');
+function jozz_options()
 {
     $viewoption = esc_attr(get_option('viewoption', 'AMP & Canonical'));
 
@@ -123,20 +123,20 @@ function jz_options()
 }
 
 // Add the style
-function jz_load_plugin_css()
+function jozz_load_plugin_css()
 {
     $plugin_url = plugin_dir_url(__FILE__);
     wp_enqueue_style('style1', $plugin_url . 'css/style.css');
 }
-add_action('wp_enqueue_scripts', 'jz_load_plugin_css');
+add_action('wp_enqueue_scripts', 'jozz_load_plugin_css');
 
 // create link to the settings page from plugins page
-function my_plugin_settings_link($links)
+function jozz_plugin_settings_link($links)
 {
     $settings_link =
-        '<a href="options-general.php?page=jz-settings-cssbacktotop.php">Settings</a>';
+        '<a href="options-general.php?page=jozz-settings-cssbacktotop.php">Settings</a>';
     array_push($links, $settings_link);
     return $links;
 }
 $plugin = plugin_basename(__FILE__);
-add_filter("plugin_action_links_$plugin", 'my_plugin_settings_link');
+add_filter("plugin_action_links_$plugin", 'jozz_plugin_settings_link');
