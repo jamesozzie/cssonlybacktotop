@@ -12,8 +12,7 @@ If you're using the official AMP plugin there are options to  display the button
 
 == Description ==
 
-This plugin will add a Scroll To Up button in your site footer right. Here is very easy to setup for change color option and many more. First install the plugin and let's see.
-
+ 
 <strong>Features: </strong>
 
 <ul>
@@ -25,8 +24,7 @@ This plugin will add a Scroll To Up button in your site footer right. Here is ve
 	<li>CSS Only</li>
 </ul>
 
-<strong>Wanna see how it's works? Click here :</strong> <a href="http://nazmulislam.xyz/plugins/lz-scroll-up/" target="_blank" >LZ Scroll Up Demo</a> 
-
+ 
 
 
 == Installation ==
